@@ -55,9 +55,3 @@ This project builds upon and adapts code and concepts from several excellent ope
 *   Systematic testing, debugging, and code organization.
 
 ---
-
-**How to Use this README:**
-
-1.  **Review the Flappy Bird Source:** The link you provided for Flappy Bird (`https://gitlab.com/richardathome/nano-bird`) is a good example. If this is the primary one you drew from, great! If your adaptation was more generally based on the common "Nano Bird" code found in many Arduino examples (often originally by `datacute` or similar), you might just mention "Adapted from common 'Nano Bird' Arduino examples." For a specific credit, always try to link to the most direct source if possible.
-2.  **Add Your Name:** Replace `[Your Name Here]` if you add an author section.
-3.  **Save as `README.md`:** Place this file in the root directory of your project. Markdown files (`.md`) are commonly used for project descriptions on platforms like GitHub, GitLab, etc.
