@@ -34,8 +34,8 @@ This project builds upon and adapts code and concepts from several excellent ope
 *   **Snake Game Logic:** Adapted from the "Snake Game" project by Joel Jojo P.
     *   [Arduino Project Hub - Snake Game](https://projecthub.arduino.cc/joeljojop/snake-game-cb6241)
 
-*   **Flappy Bird Game Mechanics:** Adapted from "Nano Bird" concepts, with display and input logic modified for this project. A common source for this style of game is often attributed to projects like the one by RichardAtHome or similar.
-    *   (Example reference similar to one provided: [GitLab - Nano Bird by RichardAtHome](https://gitlab.com/richardathome/nano-bird) - Note: Ensure this is the *actual* primary source you used or find the most representative one).
+*   **Flappy Bird Game Mechanics:** Adapted from "Nano Bird" concepts, with display and input logic modified for this project. A common source for this style of game is often attributed to projects like the one by RichardAtHome.
+    *   [GitLab - Nano Bird by RichardAtHome](https://gitlab.com/richardathome/nano-bird) 
 
 *   **Tetris Game Logic & Piece Definitions:** Adapted from the "Tetris Clone with OLED SSD1306" project by BADFEED.
     *   [Arduino Project Hub - Tetris Clone](https://projecthub.arduino.cc/BADFEED/tetris-clone-with-oled-ssd1306-i2c-for-arduino-nano-uno-ef8a8a)
