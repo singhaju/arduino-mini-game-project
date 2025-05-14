@@ -1,74 +1,52 @@
 # Arduino Retro Mini-Game Console
 
-A multi-game console built on an Arduino-compatible board, featuring Snake, Flappy Bird, and Tetris, displayed on an SH1106 OLED screen and controlled via an analog joystick and push buttons.
+This project is a handheld-style gaming device built using an Arduino (e.g., Uno/Nano), an SH1106 OLED display, an analog joystick, and two push buttons. It features a main menu to select and play classic-style mini-games.
 
-## Features
+## Games Included
 
-*   Interactive menu for game selection.
-*   Three classic games:
-    *   **Snake:** Guide the snake to eat food and grow, avoiding self-collision and borders. Features a "Rush" button.
-    *   **Flappy Bird:** Navigate the bird through pipe gaps.
-    *   **Tetris:** Place falling tetrominoes to clear lines. Tracks score and pieces placed.
-*   Joystick and two-button controls (Action/Select and Menu/Back).
-*   High score tracking for each game.
-*   Visual borders for Snake and Flappy Bird play areas.
+*   **Snake:** Guide the snake to eat food and grow longer, avoiding collisions with itself and the borders. Includes a "Rush" feature.
+*   **Flappy Bird:** Navigate a bird through a series of pipes by flapping.
+*   **Tetris:** Arrange falling tetrominoes to complete lines and score points. Displays score and pieces placed.
 
-## Hardware (Typical Setup)
+## Controls
 
-*   Arduino (Uno, Nano, or compatible)
-*   SH1106 I2C OLED Display (128x64)
-*   Analog Joystick Module (2-axis with switch, switch not primarily used)
-*   2x Push Buttons
+*   **Joystick:** Directional movement in games and menu navigation.
+*   **Button A (D5):** Primary action (Select in menu, Snake Rush/Retry, Flappy Bird Flap/Retry, Tetris Rotate/Retry).
+*   **Button B (D4):** Secondary/Menu action (Return to game menu).
 
-## Software & Libraries
+## Simulation & Circuit
 
-*   Arduino IDE
-*   **U8g2 Library by Olik Kraus:** For OLED display control.
-*   **Wire Library:** For I2C communication.
+A version of this project, demonstrating the core circuit and game interactions, can be simulated on Wokwi:
+[Wokwi Simulation Link](https://wokwi.com/projects/430307229810717697)
 
-## Game Logic Adaptation & Credits
+The physical circuit involves connecting the OLED display (via I2C), the analog joystick, and the two push buttons to the appropriate pins on the Arduino.
 
-This project integrates and adapts core gameplay logic from several excellent open-source Arduino projects. Full credit goes to the original creators for their foundational work. My contribution focused on merging these into a unified multi-game system, adapting them for the specific hardware and U8g2 library, implementing a common menu and input scheme, and adding custom features.
+## Code Overview
 
-*   **Snake Game:**
-    *   Core gameplay adapted from: [Snake Game by joeljojop](https://projecthub.arduino.cc/joeljojop/snake-game-cb6241)
+The software is built around a state machine that manages transitions between the menu and the three games. Each game has its own setup, drawing, and input/logic handling functions. The U8g2 library is used for efficient OLED display rendering. Game logic for Snake, Flappy Bird, and Tetris has been adapted and integrated into this common framework.
 
-*   **Flappy Bird Game:**
-    *   Core gameplay adapted from "Nano Bird" concepts, similar to: [Nano Bird by richardathome](https://gitlab.com/richardathome/nano-bird) (Note: The exact "Nano Bird" by datacute is harder to find a single canonical link for, this is a similar well-documented version).
+## Credits & Sources of Inspiration
 
-*   **Tetris Game:**
-    *   Core gameplay, piece logic, and rotation adapted from: [Tetris Clone by BADFEED](https://projecthub.arduino.cc/BADFEED/tetris-clone-with-oled-ssd1306-i2c-for-arduino-nano-uno-ef8a8a)
-    *   (The "Tiny Tetris" by Anthony Russell was also a reference, especially for piece PROGMEM storage concepts if applicable to your final version).
+This project adapts and integrates logic and assets from several excellent open-source Arduino game projects:
 
-*   **AI Assistance (Gemini):** Provided significant support in code merging, feature implementation, debugging, and documentation structuring.
+*   **Snake Game:** Core gameplay adapted from Joel Jojo P's "Snake Game" on Arduino Project Hub:
+    *   [https://projecthub.arduino.cc/joeljojop/snake-game-cb6241](https://projecthub.arduino.cc/joeljojop/snake-game-cb6241)
 
-## My Contribution
+*   **Flappy Bird Game:** Adapted from "Nano Bird" by richardathome:
+    *   [https://gitlab.com/richardathome/nano-bird](https://gitlab.com/richardathome/nano-bird)
 
-*   Design and assembly of the physical multi-game console hardware.
-*   Development of the core software framework:
-    *   Central state machine for managing game states (Menu, Snake, Flappy, Tetris).
-    *   Menu system for game selection.
-    *   Unified input handling for joystick and buttons.
-    *   Main program loop with paged rendering for the OLED display.
-*   **Extensive integration and adaptation** of the three core game logics into this unified framework. This involved:
-    *   Refactoring display calls to use the shared U8g2 library instance.
-    *   Re-mapping input controls to the console's joystick and 2-button scheme.
-    *   Modifying game loops to be non-blocking and fit within the state machine.
-    *   Resolving variable conflicts and managing game-specific data.
-*   Implementation of custom features:
-    *   Snake "Rush" mechanic.
-    *   Tetris "Piece Count" display.
-    *   Standardized "Game Over" and "Retry/Menu" prompts.
-    *   Visual borders in Snake and Flappy Bird.
+*   **Tetris Game:** Core logic and piece concepts adapted from "Tetris Clone with OLED SSD1306 I2C" by BADFEED on Arduino Project Hub:
+    *   [https://projecthub.arduino.cc/BADFEED/tetris-clone-with-oled-ssd1306-i2c-for-arduino-nano-uno-ef8a8a](https://projecthub.arduino.cc/BADFEED/tetris-clone-with-oled-ssd1306-i2c-for-arduino-nano-uno-ef8a8a)
+
+*   **U8g2 Library:** By Olik Kraus – essential for display control.
+
+*   **AI Assistance (Gemini):** Provided significant support in merging disparate game codes, refactoring for integration, implementing new features (e.g., Snake Rush, Tetris Piece Count, UI standardization, borders), debugging, and structuring documentation.
+
+## My Own Contribution
+
+*   Conception and overall design of the multi-game console.
+*   Hardware assembly and circuit design.
+*   Development of the core software framework: state machine, menu system, unified input handling, and main rendering loop.
+*   **Significant integration and adaptation work:** Merging the adapted Snake, Flappy Bird, and Tetris game codes into a cohesive system. This involved substantial refactoring of display logic, input mapping, game loop timing for non-blocking operation, and resolving variable conflicts.
+*   Implementation of custom features and UI enhancements (e.g., Snake Rush, Tetris Piece Count, standardized game screens, game borders, two-button control scheme).
 *   Systematic testing, debugging, and code organization.
-
-## How to Use
-
-1.  Assemble the circuit as described (refer to comments in the `.ino` file for pin connections if not using a schematic).
-2.  Upload the `.ino` sketch to your Arduino board using the Arduino IDE.
-3.  Navigate the menu with the joystick and select a game with Button A.
-4.  Enjoy the games! Button B typically returns to the menu.
-
----
-
-This README provides a good overview, acknowledges the original sources properly, and clearly states your contributions. You can adjust the details as needed to perfectly match your final project.
